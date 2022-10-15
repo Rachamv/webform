@@ -1,4 +1,24 @@
-<?php
+<!DOCTYPE html>
+<html>
+
+<body>
+	<center>
+
+  <h1>DISPLAYING USER DATA </h1>
+ <?php
+// get data
+$file = fopen("userdata.csv","r");
+while(! feof($file))
+  {
+  print_r(fgetcsv($file));
+  }
+
+fclose($file);
+?> 
+
+  <?php
+
+  // submit data
 if(isset($_POST['submit'])){
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -16,23 +36,7 @@ else{
     echo "No data kindly input some data";
 }
 ?>
-<!DOCTYPE html>
-<html>
-
-<body>
-	<center>
-		<h1>DISPLAY USER DATA </h1>
-	
-		<?php
-		echo "<html><body><center><table>\n\n";
-
-		// Open a file
-		$file = fopen("userdata.csv", "r");
-    print_r($file);
-		
-		// Closing the file
-		fclose($file);
-	</center>
+  </center>
 </body>
 
 </html>
